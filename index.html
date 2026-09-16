@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>港校榜 · 2026 全港中學參考排名</title>
+  <meta name="description" content="2026 全港中學參考榜。按地區、Banding、資助類別、性別同教學語言即時篩選，對比學校資料。排名為坊間共識，非教育局官方評級。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#">
+        <div class="chop">榜</div>
+        <div>
+          <h1 class="serif">港校榜</h1>
+          <small>HK SCHOOL RANK 2026</small>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#list">排名</a>
+        <a href="#method">方法</a>
+        <a href="#note">注意</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">2026 / 升中派位參考</div>
+      <h2 class="serif">全港中學，<br>一頁睇清。</h2>
+      <p class="lead">收錄精選官津直資中學，按 DSE 公開數據、地區龍頭地位同坊間綜合競爭力交叉對照。支援即時搜尋、18 區篩選、Band / 類型 / 教學語言過濾，同最多三校對比。</p>
+      <div class="stats">
+        <div class="stat"><b class="serif">100</b><span>精選中學</span></div>
+        <div class="stat"><b class="serif">18</b><span>區校網覆蓋</span></div>
+        <div class="stat"><b class="serif">1A–2C</b><span>Banding 參考</span></div>
+        <div class="stat"><b class="serif">2026</b><span>學年資料</span></div>
+      </div>
+    </section>
+
+    <section id="list" class="panel">
+      <div class="search-row">
+        <input id="q" type="search" placeholder="搜學校、英文名、地區… 例如 東涌 / La Salle / 沙田" />
+        <select id="district"></select>
+        <select id="band">
+          <option value="">全部 Band</option>
+          <option value="1">Band 1</option>
+          <option value="1A">1A</option>
+          <option value="1B">1B</option>
+          <option value="1C">1C</option>
+          <option value="2">Band 2</option>
+          <option value="2A">2A</option>
+          <option value="2B">2B</option>
+          <option value="2C">2C</option>
+        </select>
+        <select id="type">
+          <option value="">全部類別</option>
+          <option>官立</option>
+          <option>資助</option>
+          <option>直資</option>
+        </select>
+        <select id="gender">
+          <option value="">全部性別</option>
+          <option>男女</option>
+          <option>男</option>
+          <option>女</option>
+        </select>
+        <select id="moi">
+          <option value="">教學語言</option>
+          <option>EMI</option>
+          <option>CMI</option>
+          <option>混合</option>
+        </select>
+      </div>
+      <div class="toolbar">
+        <div class="count" id="count"></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="ghost" id="reset">重置</button>
+          <div class="view-btns">
+            <button data-view="table" class="on">列表</button>
+            <button data-view="card">卡片</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap" id="tableView" style="margin-top:12px">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="rank">名次</th>
+              <th data-sort="zh">學校</th>
+              <th data-sort="band">Band</th>
+              <th data-sort="d">地區</th>
+              <th data-sort="type">類別</th>
+              <th data-sort="gender">性別</th>
+              <th data-sort="moi">語言</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="cards" id="cardView" style="display:none;margin-top:12px"></div>
+    </section>
+
+    <div class="compare" id="compare">
+      <div id="cmpText"></div>
+      <div>
+        <button class="clear" id="clearCompare">清空</button>
+        <button class="go" id="doCompare">開始對比</button>
+      </div>
+    </div>
+
+    <section id="method" class="section">
+      <h3 class="serif">排名點嚟</h3>
+      <p>教育局<strong>唔會</strong>公布官方「中學排名」。坊間榜單主要來自三組訊號：</p>
+      <ul>
+        <li><strong>已公布 DSE 成績</strong>：中英數 5+ / 4+ 比例、大學入學率。只有部分學校公開完整數據。</li>
+        <li><strong>綜合競爭力</strong>：師資、收生組別、校譽、一條龍／直屬網絡、往績。TOPick、智瞳等榜單屬呢類。</li>
+        <li><strong>Banding 估算</strong>：按小六派位組別同收生結構，將學校粗分為 1A–3C。呢個唔等於官方標籤。</li>
+      </ul>
+      <p style="margin-top:10px">本站名次以 2026 年上述來源交叉對照，優先採用多數來源一致的位置。並列學校代表成績接近，唔好當成絕對先後。</p>
+    </section>
+
+    <section id="note" class="section">
+      <h3 class="serif">點樣用呢個榜</h3>
+      <ul>
+        <li>先用地區同 Band 收窄，再睇教學語言、男女校、學費。</li>
+        <li>喀沙、拔萃男、部分傳統名校唔一定每年公開完整 DSE 表，DSE-only 榜會估低佢哋。</li>
+        <li>鄧顯、曾肇添、荃官呢類「已公布成績強」學校，喺 DSE 榜往往高過綜合名聲榜。</li>
+        <li>選校最後應睇校網、自行分配面試、交通、校風同子女性格，唔好只填第一名。</li>
+      </ul>
+      <div class="warn">
+        免責：本站資料整理自公開報道同學校自願公布成績，僅供家長參考，並非教育局、考評局或任何學校之官方排名、認可或推薦。實際派位規則以教育局最新公布為準。
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">港校榜 · 2026 參考版 · 資料截至 2026 年 9 月 · 非官方</div>
+  </footer>
+
+  <div class="modal-bg" id="modalBg">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
